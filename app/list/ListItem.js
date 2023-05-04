@@ -3,7 +3,6 @@ import Link from 'next/link';
 import DetailLink from './DetailLink';
 
 const ListItem = ({ results }) => {
-  console.log('results', results);
   return (
     <div>
       {results.map((result, i) => (
