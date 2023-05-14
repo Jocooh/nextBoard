@@ -1,5 +1,5 @@
 import { connectDB } from '@/util/database';
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { authOptions } from '@/pages/api/auth/[...nextauth].js';
 import { getServerSession } from 'next-auth';
 
 export default async function newList(req, res) {
@@ -7,8 +7,8 @@ export default async function newList(req, res) {
   if (session) {
     req.body.author = session.user.email;
   }
-  console.log(req.body.author);
-  if (req.method === 'DELETE') {
+  console.log(session);
+  if (req.method === 'POST') {
     if (req.body.title == '') {
       return 응답.status(500).json('왜 제목 안씀');
     } else if (req.body.content == '') {

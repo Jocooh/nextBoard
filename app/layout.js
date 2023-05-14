@@ -12,10 +12,12 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   //현재 로그인한 유저 정보가져오기 getServerSession(); 서버컴포넌트에서 사용가능
   let session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body>
         {session ? <LogoutBtn /> : <LoginBtn />}
+        <p>hello, {session ? session.user.name : '익명'}</p>
         {children}
       </body>
     </html>

@@ -3,7 +3,7 @@ import '../globals.css';
 import { connectDB } from '@/util/database';
 import ListItem from './ListItem';
 
-export const dynamic = 'force-dynamic'; //dynamic rendering
+// export const dynamic = 'force-dynamic'; //dynamic rendering
 
 export default async function List() {
   const db = (await connectDB).db('forum');
