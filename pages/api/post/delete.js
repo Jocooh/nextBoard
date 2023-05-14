@@ -1,8 +1,12 @@
 import { connectDB } from '@/util/database';
 import { ObjectId } from 'mongodb';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
 
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
+  if (req.method === 'DELETE') {
+    let session = await getServerSession(req, res, authOptions);
+    console.log(session);
     const db = (await connectDB).db('forum');
     let result = await db
       .collection('post')

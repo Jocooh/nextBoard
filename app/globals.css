@@ -60,3 +60,7 @@ a {
   opacity: 1;
   transition: all 1s;
 }
+.navbar {
+  background-color: aliceblue;
+  margin-bottom: 10px;
+}

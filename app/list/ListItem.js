@@ -16,7 +16,7 @@ const ListItem = ({ results }) => {
           <span
             onClick={(e) => {
               fetch('api/post/delete', {
-                method: 'POST',
+                method: 'DELETE',
                 body: result._id,
               }).then(() => {
                 e.target.parentElement.style.opacity = 0;

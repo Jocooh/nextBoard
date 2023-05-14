@@ -1,7 +1,14 @@
 import { connectDB } from '@/util/database';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
 
 export default async function newList(req, res) {
-  if (req.method === 'POST') {
+  let session = await getServerSession(req, res, authOptions); //현재 로그인한 유저 출력
+  if (session) {
+    req.body.author = session.user.email;
+  }
+  console.log(req.body.author);
+  if (req.method === 'DELETE') {
     if (req.body.title == '') {
       return 응답.status(500).json('왜 제목 안씀');
     } else if (req.body.content == '') {
