@@ -7,7 +7,6 @@ export default async function newList(req, res) {
   if (session) {
     req.body.author = session.user.email;
   }
-  console.log(session);
   if (req.method === 'POST') {
     if (req.body.title == '') {
       return 응답.status(500).json('왜 제목 안씀');
